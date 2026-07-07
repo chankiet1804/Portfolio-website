@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/*
+  Design system — dark theme, cyan/teal accent.
+  Tokens are exposed as Tailwind theme variables so they can be used as
+  utility classes (e.g. bg-surface, text-accent, font-display).
+*/
+@theme {
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+  /* Surfaces */
+  --color-base: #070b10;
+  --color-surface: #0c131b;
+  --color-surface-2: #111b25;
+  --color-border: #1c2a38;
+  --color-border-soft: #16222e;
+
+  /* Text */
+  --color-content: #94a3b8; /* body text (slate-400) */
+  --color-heading: #e2e8f0; /* headings (slate-200) */
+  --color-muted: #64748b; /* muted (slate-500) */
+
+  /* Accent — cyan / teal */
+  --color-accent: #22d3ee; /* cyan-400 */
+  --color-accent-strong: #06b6d4; /* cyan-500 */
+  --color-accent-teal: #2dd4bf; /* teal-400 */
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base text-content font-sans antialiased;
+    margin: 0;
+    /* Guard against accidental horizontal scroll from glows / grids. */
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-heading;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+    color: #fff;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-strong);
+  }
+}
+
+@layer utilities {
+  /* Accent gradient text */
+  .text-gradient {
+    background: linear-gradient(
+      120deg,
+      var(--color-accent-teal),
+      var(--color-accent)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Subtle grid backdrop */
+  .bg-grid {
+    background-image:
+      linear-gradient(var(--color-border-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-border-soft) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Glow used behind hero / accents */
+  .accent-glow {
+    background: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--color-accent) 22%, transparent),
+      transparent 70%
+    );
+  }
+}
