@@ -93,7 +93,7 @@ export const translations: Record<Lang, Dictionary> = {
       greeting: "Hi, I'm",
       role: 'Mobile Developer',
       tagline:
-        'I build scalable React Native & Flutter apps and integrate decentralized Web3 protocols — focused on high-performance, user-centric mobile experiences.',
+        'I build scalable React Native & Flutter apps and integrate decentralized Web3 protocols - focused on high-performance, user-centric mobile experiences.',
       ctaProjects: 'View Projects',
       ctaContact: 'Get in touch',
       scroll: 'Scroll',
@@ -167,7 +167,7 @@ export const translations: Record<Lang, Dictionary> = {
       greeting: 'Xin chào, tôi là',
       role: 'Mobile Developer',
       tagline:
-        'Tôi xây dựng ứng dụng React Native & Flutter có khả năng mở rộng và tích hợp các giao thức Web3 phi tập trung — tập trung vào trải nghiệm mobile hiệu năng cao, lấy người dùng làm trọng tâm.',
+        'Tôi xây dựng ứng dụng React Native & Flutter có khả năng mở rộng và tích hợp các giao thức Web3 phi tập trung - tập trung vào trải nghiệm mobile hiệu năng cao, lấy người dùng làm trọng tâm.',
       ctaProjects: 'Xem dự án',
       ctaContact: 'Liên hệ ngay',
       scroll: 'Cuộn xuống',

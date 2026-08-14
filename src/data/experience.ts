@@ -5,7 +5,7 @@ export const experiences: ExperienceItem[] = [
     id: 'interlinklabs',
     company: 'Interlinklabs',
     role: { en: 'React Native Developer', vi: 'React Native Developer' },
-    period: { en: 'Feb 2025 — Present', vi: 'Th02/2025 — Hiện tại' },
+    period: { en: 'Feb 2025 - Present', vi: 'Th02/2025 - Hiện tại' },
     location: { en: 'Ho Chi Minh City', vi: 'TP. Hồ Chí Minh' },
     description: {
       en: 'Interlinklabs builds a global networking & blockchain ecosystem with 5M+ users. As a Mobile Developer I collaborate closely with Design, Backend, and Blockchain teams to ship responsive UIs and seamless in-app experiences.',

@@ -5,11 +5,11 @@ export const projects: ProjectItem[] = [
     id: 'fluid-wallet',
     title: 'Fluid Wallet',
     category: 'mobile',
-    period: { en: 'Jul 2026 — Present', vi: 'Th07/2026 — Hiện tại' },
+    period: { en: 'Jul 2026 - Present', vi: 'Th07/2026 - Hiện tại' },
     featured: true,
     description: {
-      en: 'A self-custody, multi-chain EVM wallet built with Flutter — keys are generated and signed on the device.',
-      vi: 'Ví EVM đa chuỗi self-custody viết bằng Flutter — khóa được sinh và ký ngay trên thiết bị.',
+      en: 'A self-custody EVM wallet in Flutter - create or import a wallet, track balances across chains, then send, receive and swap.',
+      vi: 'Ví EVM self-custody viết bằng Flutter - tạo hoặc import ví, theo dõi số dư đa chuỗi, gửi, nhận và swap token.',
     },
     highlights: [
       {
@@ -21,8 +21,8 @@ export const projects: ProjectItem[] = [
         vi: 'Load số dư native + token trên nhiều chain EVM kèm quy đổi USD.',
       },
       {
-        en: 'Multi-wallet management — switch wallets from a bottom sheet.',
-        vi: 'Quản lý nhiều ví — đổi ví trong bottom sheet.',
+        en: 'Multi-wallet management - switch wallets from a bottom sheet.',
+        vi: 'Quản lý nhiều ví - đổi ví trong bottom sheet.',
       },
       {
         en: 'Send, receive and swap tokens between wallets.',
@@ -45,7 +45,7 @@ export const projects: ProjectItem[] = [
     id: 'toeic-app',
     title: 'TOEIC Practice App',
     category: 'mobile',
-    period: { en: 'Sep 2024 — Mar 2025', vi: 'Th09/2024 — Th03/2025' },
+    period: { en: 'Sep 2024 - Mar 2025', vi: 'Th09/2024 - Th03/2025' },
     featured: true,
     description: {
       en: 'A React Native (Expo) app for TOEIC preparation: test-taking, result tracking and voice-based feedback.',
@@ -78,9 +78,9 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 'itl-borrow',
-    title: 'ITL Borrow — Borrowing dApp',
+    title: 'Borrowing dApp',
     category: 'web',
-    period: { en: 'Jul 2026 — Present', vi: 'Th07/2026 — Hiện tại' },
+    period: { en: 'Jul 2026 - Present', vi: 'Th07/2026 - Hiện tại' },
     featured: true,
     description: {
       en: "Borrower web app for Interlink Labs' collateral-backed lending: deposit ITL collateral, borrow USDT, track and repay.",
@@ -88,8 +88,8 @@ export const projects: ProjectItem[] = [
     },
     highlights: [
       {
-        en: 'dApp authentication — connect MetaMask and sign a challenge to obtain a session.',
-        vi: 'Authen dApp — kết nối MetaMask và ký challenge để lấy phiên đăng nhập.',
+        en: 'dApp authentication - connect MetaMask and sign a challenge to obtain a session.',
+        vi: 'Authen dApp - kết nối MetaMask và ký challenge để lấy phiên đăng nhập.',
       },
       {
         en: 'Mobile-first responsive UI design.',
@@ -114,7 +114,6 @@ export const projects: ProjectItem[] = [
       'TanStack Query',
       'Vitest',
     ],
-    demo: 'https://interlink-borrowing.netlify.app',
   },
 ]
 
@@ -123,12 +122,12 @@ export const certifications: Certification[] = [
     id: 'toeic-lr',
     name: 'TOEIC Listening & Reading',
     score: '770',
-    period: '04/2024 — 04/2026',
+    period: '04/2024 - 04/2026',
   },
   {
     id: 'toeic-sw',
     name: 'TOEIC Speaking & Writing',
     score: '300',
-    period: '03/2026 — 03/2028',
+    period: '03/2026 - 03/2028',
   },
 ]

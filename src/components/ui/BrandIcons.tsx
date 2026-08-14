@@ -1,4 +1,4 @@
-// Brand glyphs (GitHub, LinkedIn) — lucide-react dropped brand icons,
+// Brand glyphs (GitHub, LinkedIn) - lucide-react dropped brand icons,
 // so we ship minimal inline SVGs with a lucide-compatible API.
 
 interface IconProps {

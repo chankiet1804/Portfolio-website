@@ -36,7 +36,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
               href={project.demo}
               target="_blank"
               rel="noreferrer"
-              aria-label={`${project.title} — ${t.projects.viewDemo}`}
+              aria-label={`${project.title} - ${t.projects.viewDemo}`}
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-content transition-colors hover:border-accent/60 hover:text-accent"
             >
               <ExternalLink size={17} />
@@ -47,7 +47,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              aria-label={`${project.title} — ${t.projects.viewCode}`}
+              aria-label={`${project.title} - ${t.projects.viewCode}`}
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-content transition-colors hover:border-accent/60 hover:text-accent"
             >
               <GithubIcon size={17} />
