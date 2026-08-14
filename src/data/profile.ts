@@ -15,6 +15,14 @@ export const profile = {
   cvUrl: '/Huynh-Chan-Kiet-CV.pdf',
 } as const
 
+/**
+ * Gmail compose URL with the recipient prefilled. Preferred over `mailto:`,
+ * which silently does nothing when the OS has no mail handler registered.
+ */
+export const emailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+  profile.email,
+)}`
+
 export const socials: SocialLink[] = [
   {
     id: 'github',
@@ -31,7 +39,7 @@ export const socials: SocialLink[] = [
   {
     id: 'email',
     label: 'Email',
-    href: `mailto:${profile.email}`,
+    href: emailComposeUrl,
     icon: 'mail',
   },
 ]

@@ -4,7 +4,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 import { Reveal } from '../ui/Reveal'
 import { SocialLinks } from '../ui/SocialLinks'
 import { useLanguage } from '../../i18n/useLanguage'
-import { profile } from '../../data'
+import { emailComposeUrl, profile } from '../../data'
 
 export function Contact() {
   const { t, pick } = useLanguage()
@@ -33,7 +33,9 @@ export function Contact() {
             {/* Primary actions */}
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
               <a
-                href={`mailto:${profile.email}`}
+                href={emailComposeUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-base transition-all hover:bg-accent-strong hover:shadow-[0_0_30px_-8px_var(--color-accent)]"
               >
                 <Mail size={16} />
