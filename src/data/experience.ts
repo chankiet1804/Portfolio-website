@@ -4,7 +4,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'interlinklabs',
     company: 'Interlinklabs',
-    role: { en: 'Mobile Developer (React Native)', vi: 'Mobile Developer (React Native)' },
+    role: { en: 'React Native Developer', vi: 'React Native Developer' },
     period: { en: 'Feb 2025 — Present', vi: 'Th02/2025 — Hiện tại' },
     location: { en: 'Ho Chi Minh City', vi: 'TP. Hồ Chí Minh' },
     description: {
@@ -28,6 +28,10 @@ export const experiences: ExperienceItem[] = [
         en: 'Built responsive interfaces that work perfectly across a wide range of mobile screen sizes.',
         vi: 'Xây dựng giao diện responsive hoạt động hoàn hảo trên nhiều kích thước màn hình khác nhau.',
       },
+      {
+        en: 'Used AI coding tools (Claude Code, MCP) to plan, architect, and accelerate feature implementation, improving development workflow efficiency.',
+        vi: 'Sử dụng các công cụ AI (Claude Code, MCP) để lên kế hoạch, thiết kế kiến trúc và tăng tốc triển khai tính năng, cải thiện hiệu quả quy trình phát triển.',
+      },
     ],
     tech: [
       'React Native',
@@ -38,6 +42,8 @@ export const experiences: ExperienceItem[] = [
       'ethers.js',
       'TanStack Query',
       'Zustand',
+      'Claude Code',
+      'MCP',
     ],
   },
 ]

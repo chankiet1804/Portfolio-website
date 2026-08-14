@@ -26,14 +26,20 @@ export interface ExperienceItem {
   tech: string[]
 }
 
+/** Groups projects into the Mobile / Web columns of the Projects section. */
+export type ProjectCategory = 'mobile' | 'web'
+
 export interface ProjectItem {
   id: string
   title: string
+  category: ProjectCategory
   period: Localized
   description: Localized
   highlights: Localized[]
   tech: string[]
   github?: string
+  /** Public URL of a live deployment, when there is one. */
+  demo?: string
   featured?: boolean
 }
 

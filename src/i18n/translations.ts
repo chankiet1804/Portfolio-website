@@ -54,8 +54,13 @@ export interface Dictionary {
     heading: string
     subheading: string
     viewCode: string
+    viewDemo: string
     highlights: string
     stack: string
+    categories: {
+      mobile: string
+      web: string
+    }
   }
   contact: {
     heading: string
@@ -98,7 +103,7 @@ export const translations: Record<Lang, Dictionary> = {
       heading: 'About Me',
       subheading: 'Who I am',
       lead: 'Mobile Developer with a passion for clean, maintainable code.',
-      body: "I'm a Computer Science student at UIT and a Mobile Developer at Interlinklabs, where I help build a global networking & blockchain ecosystem serving 5M+ users. I work closely with Design, Backend, and Blockchain teams to ship responsive UIs and smooth experiences across iOS and Android — with real, production Web3 integrations like WalletConnect, token transfers, NFT management, and decentralized swaps.",
+      body: "I am a Mobile Developer with experience in building cross-platform applications using React Native and Flutter. I have worked on a global project with over 5 million users involving Web3, blockchain integration, and wallet development.\nI also bring AI into my development workflow (Claude Code, Figma MCP, Mobile MCP) to speed up writing, maintaining, and debugging code.",
       facts: {
         role: 'Role',
         location: 'Location',
@@ -125,8 +130,13 @@ export const translations: Record<Lang, Dictionary> = {
       heading: 'Projects',
       subheading: 'Things I have built',
       viewCode: 'View code',
+      viewDemo: 'Live demo',
       highlights: 'Highlights',
       stack: 'Tech stack',
+      categories: {
+        mobile: 'Mobile Development',
+        web: 'Web Development',
+      },
     },
     contact: {
       heading: "Let's work together",
@@ -167,7 +177,7 @@ export const translations: Record<Lang, Dictionary> = {
       heading: 'Về tôi',
       subheading: 'Tôi là ai',
       lead: 'Mobile Developer với đam mê viết code sạch, dễ bảo trì.',
-      body: 'Tôi là sinh viên Khoa học Máy tính tại UIT và là Mobile Developer tại Interlinklabs, nơi tôi góp phần xây dựng hệ sinh thái mạng lưới & blockchain toàn cầu phục vụ hơn 5 triệu người dùng. Tôi làm việc chặt chẽ với các nhóm Design, Backend và Blockchain để tạo ra giao diện responsive và trải nghiệm mượt mà trên cả iOS lẫn Android — với các tích hợp Web3 thực tế ở môi trường production như WalletConnect, chuyển token, quản lý NFT và swap phi tập trung.',
+      body: 'Tôi là Mobile Developer với kinh nghiệm xây dựng ứng dụng đa nền tảng bằng React Native và Flutter. Tôi đã tham gia một dự án toàn cầu với hơn 5 triệu người dùng, liên quan đến Web3, tích hợp blockchain và phát triển ví.\nNgoài ra, tôi còn tích hợp AI vào quy trình phát triển ứng dụng (Claude Code, Figma MCP, Mobile MCP), giúp tăng tốc trong việc viết mã nguồn, bảo trì và fix bug.',
       facts: {
         role: 'Vị trí',
         location: 'Địa điểm',
@@ -194,8 +204,13 @@ export const translations: Record<Lang, Dictionary> = {
       heading: 'Dự án',
       subheading: 'Những gì tôi đã xây dựng',
       viewCode: 'Xem mã nguồn',
+      viewDemo: 'Xem demo',
       highlights: 'Điểm nổi bật',
       stack: 'Công nghệ',
+      categories: {
+        mobile: 'Phát triển Mobile',
+        web: 'Phát triển Web',
+      },
     },
     contact: {
       heading: 'Hãy cùng hợp tác',

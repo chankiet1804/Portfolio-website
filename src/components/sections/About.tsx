@@ -26,7 +26,10 @@ export function About() {
           <p className="text-lg font-medium leading-relaxed text-heading sm:text-xl">
             {t.about.lead}
           </p>
-          <p className="mt-5 leading-relaxed text-content">{t.about.body}</p>
+          {/* whitespace-pre-line keeps the \n line breaks written in the copy */}
+          <p className="mt-5 whitespace-pre-line leading-relaxed text-content">
+            {t.about.body}
+          </p>
         </Reveal>
 
         {/* Fact cards */}

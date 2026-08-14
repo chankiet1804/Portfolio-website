@@ -28,7 +28,8 @@ export function Skills() {
           >
             <div className="mb-4 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <h3 className="text-base font-semibold text-heading">
+              {/* No text-base here: it resolves to --color-base and blacks out the title */}
+              <h3 className="font-semibold text-heading">
                 {pick(group.label)}
               </h3>
             </div>
