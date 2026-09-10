@@ -33,6 +33,7 @@ export interface Dictionary {
       location: string
       experience: string
       education: string
+      certifications: string
     }
     values: {
       roleValue: string
@@ -57,6 +58,7 @@ export interface Dictionary {
     viewDemo: string
     highlights: string
     stack: string
+    privateRepo: string
     categories: {
       mobile: string
       web: string
@@ -93,7 +95,7 @@ export const translations: Record<Lang, Dictionary> = {
       greeting: "Hi, I'm",
       role: 'Mobile Developer',
       tagline:
-        'I build scalable React Native & Flutter apps and integrate decentralized Web3 protocols - focused on high-performance, user-centric mobile experiences.',
+        'Mobile Developer building cross-platform apps with React Native & Flutter, focused on Web3 - blockchain, crypto wallets and dApps.',
       ctaProjects: 'View Projects',
       ctaContact: 'Get in touch',
       scroll: 'Scroll',
@@ -109,6 +111,7 @@ export const translations: Record<Lang, Dictionary> = {
         location: 'Location',
         experience: 'Focus',
         education: 'Education',
+        certifications: 'English',
       },
       values: {
         roleValue: 'Mobile Developer',
@@ -133,6 +136,7 @@ export const translations: Record<Lang, Dictionary> = {
       viewDemo: 'Live demo',
       highlights: 'Highlights',
       stack: 'Tech stack',
+      privateRepo: 'Private repository — company product',
       categories: {
         mobile: 'Mobile Development',
         web: 'Web Development',
@@ -149,7 +153,7 @@ export const translations: Record<Lang, Dictionary> = {
     },
     footer: {
       rights: 'All rights reserved.',
-      builtWith: 'Built with React, Tailwind CSS & Framer Motion.',
+      builtWith: 'Built with React & the Nocturne design system.',
     },
     a11y: {
       switchLang: 'Switch language',
@@ -167,7 +171,7 @@ export const translations: Record<Lang, Dictionary> = {
       greeting: 'Xin chào, tôi là',
       role: 'Mobile Developer',
       tagline:
-        'Tôi xây dựng ứng dụng React Native & Flutter có khả năng mở rộng và tích hợp các giao thức Web3 phi tập trung - tập trung vào trải nghiệm mobile hiệu năng cao, lấy người dùng làm trọng tâm.',
+        'Mobile Developer phát triển ứng dụng cross-platform bằng React Native & Flutter, tập trung vào mảng Web3 - blockchain, ví crypto và dApp.',
       ctaProjects: 'Xem dự án',
       ctaContact: 'Liên hệ ngay',
       scroll: 'Cuộn xuống',
@@ -183,6 +187,7 @@ export const translations: Record<Lang, Dictionary> = {
         location: 'Địa điểm',
         experience: 'Thế mạnh',
         education: 'Học vấn',
+        certifications: 'Tiếng Anh',
       },
       values: {
         roleValue: 'Mobile Developer',
@@ -207,6 +212,7 @@ export const translations: Record<Lang, Dictionary> = {
       viewDemo: 'Xem demo',
       highlights: 'Điểm nổi bật',
       stack: 'Công nghệ',
+      privateRepo: 'Repo nội bộ — sản phẩm của công ty',
       categories: {
         mobile: 'Phát triển Mobile',
         web: 'Phát triển Web',
@@ -223,7 +229,7 @@ export const translations: Record<Lang, Dictionary> = {
     },
     footer: {
       rights: 'Bảo lưu mọi quyền.',
-      builtWith: 'Xây dựng với React, Tailwind CSS & Framer Motion.',
+      builtWith: 'Xây dựng với React & hệ thống thiết kế Nocturne.',
     },
     a11y: {
       switchLang: 'Chuyển ngôn ngữ',

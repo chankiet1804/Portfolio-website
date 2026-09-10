@@ -1,31 +1,48 @@
 @import "tailwindcss";
 
 /*
-  Design system - dark theme, cyan/teal accent.
-  Tokens are exposed as Tailwind theme variables so they can be used as
-  utility classes (e.g. bg-surface, text-accent, font-display).
+  Design system - Nocturne (dark indigo ground, blurple accent).
+  Tokens mirror the Claude Design bundle so the site and the design file stay
+  in sync. Exposed as Tailwind theme variables to be usable as utilities
+  (e.g. bg-surface, text-accent).
 */
 @theme {
-  /* Fonts */
+  /* Fonts - Nocturne is Inter for both display and body */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   /* Surfaces */
-  --color-base: #070b10;
-  --color-surface: #0c131b;
-  --color-surface-2: #111b25;
-  --color-border: #1c2a38;
-  --color-border-soft: #16222e;
+  --color-base: #161826;
+  --color-surface: #232532;
+  --color-surface-2: #2b2d3b;
+  --color-border: #383a47;
+  --color-border-soft: #2a2c39;
 
-  /* Text */
-  --color-content: #94a3b8; /* body text (slate-400) */
-  --color-heading: #e2e8f0; /* headings (slate-200) */
-  --color-muted: #64748b; /* muted (slate-500) */
+  /* Text - flattened from the token ramp of --color-text (#e9e9ed) */
+  --color-content: #a8a9b6; /* body copy (~68%) */
+  --color-heading: #e9e9ed; /* headings (100%) */
+  --color-muted: #7d7f8e; /* meta / captions (~50%) */
 
-  /* Accent - cyan / teal */
-  --color-accent: #22d3ee; /* cyan-400 */
-  --color-accent-strong: #06b6d4; /* cyan-500 */
-  --color-accent-teal: #2dd4bf; /* teal-400 */
+  /* Accent - blurple ramp, one shared OKLCH lightness scale */
+  --color-accent: #9184d9;
+  --color-accent-strong: #796cbf;
+  --color-accent-soft: #d2cefd;
+  --color-accent-2: #a7a1db;
+  --color-accent-100: #f5f4ff;
+  --color-accent-300: #d2cefd;
+  --color-accent-400: #b5abfc;
+  --color-accent-800: #423a6a;
+  --color-accent-900: #2b2741;
+  --color-neutral-100: #f3f5fe;
+  --color-neutral-800: #3f424d;
+
+  /* Deck-scale fill used by the drifting background glow */
+  --color-section-ghost: #4c5397;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
 
   /* Motion */
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
@@ -34,6 +51,16 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Live height of the sticky navbar, measured at runtime by <Navbar>. */
+    --nav-h: 60px;
+    /* Breathing room between the navbar and the top of a section's content. */
+    --nav-gap: 1.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
@@ -48,12 +75,19 @@
   h3,
   h4 {
     @apply font-display text-heading;
+    font-weight: 500;
+    letter-spacing: -0.015em;
     text-wrap: balance;
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+    background: var(--color-accent-800);
     color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 
   /* Custom scrollbar */
@@ -68,7 +102,85 @@
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-accent-strong);
+    background: var(--color-accent);
+  }
+}
+
+@layer components {
+  /*
+    Vertical rhythm for a page section. The anchor offset reuses the section's
+    own top padding instead of stacking on top of it, so a nav jump lands with
+    the content just below the navbar on any viewport / navbar height.
+  */
+  .section-block {
+    --section-pt: 4rem;
+    padding-top: var(--section-pt);
+    padding-bottom: var(--section-pt);
+    scroll-margin-top: max(
+      0px,
+      calc(var(--nav-h) + var(--nav-gap) - var(--section-pt))
+    );
+  }
+  @media (min-width: 640px) {
+    .section-block {
+      --section-pt: 6rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-block {
+      --section-pt: 7rem;
+    }
+  }
+
+  /* Buttons - outline-first, the Nocturne signature */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-transparent;
+    @apply font-display text-sm font-medium text-heading no-underline;
+    @apply cursor-pointer transition-colors;
+  }
+  .btn-primary {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+  .btn-primary:hover {
+    background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  }
+  .btn-primary:active {
+    background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  }
+  .btn-secondary {
+    border-color: var(--color-border);
+  }
+  .btn-secondary:hover {
+    background: color-mix(in srgb, var(--color-heading) 7%, transparent);
+  }
+  .btn-secondary:active {
+    background: color-mix(in srgb, var(--color-heading) 14%, transparent);
+  }
+
+  /* Tags */
+  .tag {
+    @apply inline-flex items-center px-2.5 py-[3px] text-[11px] tracking-[0.02em];
+    border-radius: calc(var(--radius-md) * 0.75);
+  }
+  .tag-accent {
+    background: var(--color-accent-800);
+    color: var(--color-accent-100);
+  }
+  .tag-neutral {
+    background: var(--color-neutral-800);
+    color: var(--color-neutral-100);
+  }
+
+  /* Elevation - a hairline edge plus ambient darkness on a dark ground */
+  .elev-sm {
+    box-shadow: 0 0 0 1px #3f424d;
+  }
+  .elev-md {
+    box-shadow: 0 0 0 1px #595d6c, 0 6px 18px rgb(0 0 0 / 0.55);
+  }
+  .elev-lg {
+    box-shadow: 0 0 0 1px #9397ab, 0 16px 40px rgb(0 0 0 / 0.65);
   }
 }
 
@@ -77,28 +189,76 @@
   .text-gradient {
     background: linear-gradient(
       120deg,
-      var(--color-accent-teal),
-      var(--color-accent)
+      var(--color-accent-2),
+      var(--color-accent-400)
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  /* Subtle grid backdrop */
-  .bg-grid {
-    background-image:
-      linear-gradient(var(--color-border-soft) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-border-soft) 1px, transparent 1px);
-    background-size: 48px 48px;
+  /*
+    Freestanding rules fade to transparent over 48px at both ends - a Nocturne
+    signature. Painted as a background strip so it can sit on any edge.
+  */
+  .rule-fade {
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      var(--color-border) 48px,
+      var(--color-border) calc(100% - 48px),
+      transparent
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+  }
+  .rule-top {
+    background-position: top;
+  }
+  .rule-bottom {
+    background-position: bottom;
   }
 
-  /* Glow used behind hero / accents */
+  /* Glow used behind hero / contact / accents */
   .accent-glow {
     background: radial-gradient(
       circle at center,
-      color-mix(in srgb, var(--color-accent) 22%, transparent),
-      transparent 70%
+      color-mix(in srgb, var(--color-accent) 16%, transparent),
+      transparent 65%
     );
+  }
+}
+
+/* Background layer + hero animations. Reduced motion is honoured in the
+   components that own these elements. */
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes grid-drift {
+  to {
+    transform: translate3d(-64px, -64px, 0);
+  }
+}
+@keyframes glow-a {
+  to {
+    transform: translate3d(9vw, 7vh, 0) scale(1.18);
+  }
+}
+@keyframes glow-b {
+  to {
+    transform: translate3d(-11vw, -6vh, 0) scale(1.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-bg-layer] * {
+    animation: none !important;
   }
 }

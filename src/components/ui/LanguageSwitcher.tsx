@@ -12,7 +12,7 @@ export function LanguageSwitcher() {
     <div
       role="group"
       aria-label={t.a11y.switchLang}
-      className="relative flex items-center rounded-full border border-border bg-surface-2 p-0.5 text-xs font-semibold"
+      className="flex items-center gap-0.5 rounded-full border border-border p-0.5"
     >
       {LANGS.map((code) => {
         const active = lang === code
@@ -23,13 +23,12 @@ export function LanguageSwitcher() {
             onClick={() => setLang(code)}
             aria-pressed={active}
             className={cn(
-              'relative z-10 rounded-full px-2.5 py-1 transition-colors',
-              active ? 'text-base' : 'text-content hover:text-heading',
+              'rounded-full px-2.5 py-1 text-[11.5px] font-semibold tracking-[0.06em] transition-colors',
+              active
+                ? 'bg-accent-800 text-accent-100'
+                : 'text-content/60 hover:text-heading',
             )}
           >
-            {active && (
-              <span className="absolute inset-0 -z-10 rounded-full bg-accent" />
-            )}
             {LABELS[code]}
           </button>
         )

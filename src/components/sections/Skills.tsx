@@ -10,7 +10,7 @@ export function Skills() {
   const { t, pick } = useLanguage()
 
   return (
-    <Section id="skills" className="bg-surface/40">
+    <Section id="skills">
       <SectionHeading eyebrow={t.skills.subheading} title={t.skills.heading} />
 
       <motion.div
@@ -18,24 +18,24 @@ export function Skills() {
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
-        className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {skillGroups.map((group) => (
+        {skillGroups.map((group, index) => (
           <motion.div
             key={group.id}
             variants={staggerItem}
-            className="group rounded-2xl border border-border bg-surface p-6 transition-all hover:-translate-y-1 hover:border-accent/40"
+            className="elev-sm rounded-md bg-surface p-5 transition-colors hover:bg-surface-2"
           >
-            <div className="mb-4 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              {/* No text-base here: it resolves to --color-base and blacks out the title */}
-              <h3 className="font-semibold text-heading">
-                {pick(group.label)}
-              </h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
+            {/* No text-base here: it resolves to --color-base and blacks out the title */}
+            <p className="mb-3.5 text-sm font-medium text-heading">
+              {pick(group.label)}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
               {group.skills.map((skill) => (
-                <Tag key={skill}>{skill}</Tag>
+                /* The lead group carries the accent tags; the rest stay neutral. */
+                <Tag key={skill} variant={index === 0 ? 'accent' : 'neutral'}>
+                  {skill}
+                </Tag>
               ))}
             </div>
           </motion.div>

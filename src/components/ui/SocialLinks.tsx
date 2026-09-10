@@ -17,7 +17,7 @@ const ICONS: Record<SocialLink['icon'], IconComponent> = {
 /** Row of icon links to the owner's public profiles. */
 export function SocialLinks({ className }: { className?: string }) {
   return (
-    <ul className={cn('flex items-center gap-3', className)}>
+    <ul className={cn('flex items-center gap-2.5', className)}>
       {socials.map((s) => {
         const Icon = ICONS[s.icon]
         return (
@@ -28,7 +28,7 @@ export function SocialLinks({ className }: { className?: string }) {
               title={s.label}
               target="_blank"
               rel="noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface-2 text-content transition-all hover:-translate-y-0.5 hover:border-accent/60 hover:text-accent"
+              className="btn btn-secondary h-[42px] w-[42px] text-content transition-colors hover:text-accent"
             >
               <Icon size={18} />
             </a>

@@ -24,6 +24,11 @@ export interface ExperienceItem {
   description: Localized
   highlights: Localized[]
   tech: string[]
+  /** Public store listings of the app worked on, when it is published. */
+  storeLinks?: {
+    android?: string
+    ios?: string
+  }
 }
 
 /** Groups projects into the Mobile / Web columns of the Projects section. */
@@ -40,12 +45,20 @@ export interface ProjectItem {
   github?: string
   /** Public URL of a live deployment, when there is one. */
   demo?: string
+  /** Path (in /public) to a showcase image. The layout drops the image
+      column entirely when a project has none. */
+  image?: string
+  /** Intrinsic pixel size of `image`, used to reserve layout space. */
+  imageWidth?: number
+  imageHeight?: number
+  /** Closed-source work: shown with a note instead of a repository link. */
+  privateRepo?: boolean
   featured?: boolean
 }
 
 export interface Certification {
   id: string
-  name: string
+  name: Localized
   score: string
   period: string
 }

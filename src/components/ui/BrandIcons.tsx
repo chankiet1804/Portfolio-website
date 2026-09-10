@@ -35,3 +35,33 @@ export function LinkedinIcon({ size = 20, className }: IconProps) {
     </svg>
   )
 }
+
+export function GooglePlayIcon({ size = 20, className }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M3.61 1.81a1.5 1.5 0 0 0-.36.98v18.42c0 .38.13.72.36.98l.06.06L13.9 12v-.24L3.67 1.75zM17.3 15.4l-3.4-3.4v-.24l3.4-3.4.08.05 4.04 2.3c1.15.65 1.15 1.72 0 2.38l-4.04 2.3zM16.4 16.36 12.9 12.9 2.6 23.2c.38.4 1 .45 1.7.05l12.1-6.88M16.4 7.64 4.3.76C3.6.36 2.98.4 2.6.8l10.3 10.3z" />
+    </svg>
+  )
+}
+
+export function AppleIcon({ size = 20, className }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M17.05 12.74c-.03-2.62 2.14-3.88 2.24-3.94-1.22-1.79-3.12-2.03-3.8-2.06-1.62-.16-3.16.95-3.98.95-.82 0-2.09-.93-3.43-.9-1.77.02-3.4 1.03-4.3 2.61-1.83 3.18-.47 7.89 1.31 10.47.87 1.26 1.91 2.68 3.28 2.63 1.32-.05 1.81-.85 3.4-.85 1.59 0 2.03.85 3.42.82 1.41-.02 2.31-1.29 3.17-2.55 1-1.46 1.41-2.88 1.43-2.95-.03-.01-2.74-1.05-2.77-4.17M14.46 4.9c.72-.88 1.21-2.1 1.08-3.31-1.04.04-2.3.69-3.05 1.57-.67.77-1.26 2.01-1.1 3.2 1.16.09 2.35-.59 3.07-1.46" />
+    </svg>
+  )
+}

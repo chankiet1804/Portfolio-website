@@ -14,7 +14,7 @@ export function Section({ id, children, className, containerClassName }: Section
   return (
     <section
       id={id}
-      className={cn('scroll-mt-20 py-16 sm:py-24 lg:py-28', className)}
+      className={cn('section-block', className)}
     >
       <div className={cn('mx-auto w-full max-w-6xl px-5 sm:px-6', containerClassName)}>
         {children}

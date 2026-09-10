@@ -40,6 +40,9 @@ export const projects: ProjectItem[] = [
       'EVM',
     ],
     github: 'https://github.com/chankiet1804/Fluid-Wallet',
+    image: '/images/fluid-wallet.png',
+    imageWidth: 2700,
+    imageHeight: 3000,
   },
   {
     id: 'toeic-app',
@@ -75,6 +78,9 @@ export const projects: ProjectItem[] = [
       'Docker',
     ],
     github: 'https://github.com/chankiet1804/TOEIC-practice-app',
+    image: '/images/toeic-app.png',
+    imageWidth: 1700,
+    imageHeight: 1340,
   },
   {
     id: 'itl-borrow',
@@ -114,19 +120,26 @@ export const projects: ProjectItem[] = [
       'TanStack Query',
       'Vitest',
     ],
+    privateRepo: true,
   },
 ]
 
 export const certifications: Certification[] = [
   {
     id: 'toeic-lr',
-    name: 'TOEIC Listening & Reading',
+    name: {
+      en: 'TOEIC Listening & Reading',
+      vi: 'TOEIC Nghe & Đọc',
+    },
     score: '770',
     period: '04/2024 - 04/2026',
   },
   {
     id: 'toeic-sw',
-    name: 'TOEIC Speaking & Writing',
+    name: {
+      en: 'TOEIC Speaking & Writing',
+      vi: 'TOEIC Nói & Viết',
+    },
     score: '300',
     period: '03/2026 - 03/2028',
   },

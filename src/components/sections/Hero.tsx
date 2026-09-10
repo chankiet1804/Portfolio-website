@@ -1,39 +1,50 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, ArrowDown } from 'lucide-react'
+import { ArrowDown, ArrowDownRight } from 'lucide-react'
 import { useLanguage } from '../../i18n/useLanguage'
 import { profile } from '../../data'
 import { SocialLinks } from '../ui/SocialLinks'
+import { NeuronCanvas } from '../ui/NeuronCanvas'
+import { useTypewriter } from '../../hooks/useTypewriter'
 import { fadeUp, staggerContainer, staggerItem } from '../../lib/motion'
+
+// Technology names, identical in both languages.
+const TYPING_PHRASES = ['React Native & Flutter', 'Web3 & Blockchain'] as const
 
 export function Hero() {
   const { t } = useLanguage()
+  const typed = useTypewriter(TYPING_PHRASES)
 
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center overflow-hidden pt-16"
+      className="relative flex min-h-[calc(100svh-var(--nav-h))] items-center py-24 sm:py-28"
     >
-      {/* Backdrop: grid + accent glow */}
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-40" aria-hidden />
+      {/* Particle network, bleeding past the container and fading downwards */}
       <div
-        className="accent-glow pointer-events-none absolute -top-40 right-0 h-[36rem] w-[36rem] opacity-70"
+        className="pointer-events-none absolute -bottom-10 -left-[40vw] -right-[40vw] -top-16 overflow-hidden"
+        style={{
+          maskImage: 'linear-gradient(to bottom, #000 55%, transparent 95%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, #000 55%, transparent 95%)',
+        }}
+        aria-hidden
+      >
+        <NeuronCanvas className="block h-full w-full" />
+      </div>
+      <div
+        className="accent-glow pointer-events-none absolute -left-32 -top-10 h-[32rem] w-[32rem]"
         aria-hidden
       />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-base to-transparent" aria-hidden />
 
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="mx-auto w-full max-w-6xl px-5 sm:px-6"
+        className="relative mx-auto w-full max-w-6xl px-5 sm:px-6"
       >
         {/* Availability badge */}
         <motion.div variants={staggerItem}>
-          <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent sm:text-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-accent-800 bg-accent/10 px-3 py-1.5 text-xs tracking-[0.04em] text-content">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-accent)_25%,transparent)]" />
             {t.hero.available}
           </span>
         </motion.div>
@@ -41,7 +52,7 @@ export function Hero() {
         {/* Greeting */}
         <motion.p
           variants={staggerItem}
-          className="mt-5 text-base font-medium text-content sm:mt-6 sm:text-lg"
+          className="mt-8 text-sm uppercase tracking-[0.16em] text-accent-300"
         >
           {t.hero.greeting}
         </motion.p>
@@ -49,44 +60,43 @@ export function Hero() {
         {/* Name */}
         <motion.h1
           variants={staggerItem}
-          className="mt-2 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mt-1.5 text-[clamp(2.625rem,7.2vw,5.5rem)] font-medium leading-[1.02] tracking-[-0.03em]"
         >
           {profile.name}
         </motion.h1>
 
-        {/* Role */}
+        {/* Role + typewriter */}
         <motion.h2
           variants={staggerItem}
-          className="mt-3 text-xl font-semibold tracking-tight sm:text-2xl md:text-3xl lg:text-4xl"
+          className="mt-3.5 text-[clamp(1.25rem,2.6vw,2rem)] font-normal text-content"
         >
-          <span className="text-gradient">{t.hero.role}</span>
-          <span className="text-muted"> · Web3</span>
+          {t.hero.role}
+          <span className="whitespace-nowrap text-accent">
+            {' — '}
+            {typed}
+            <span
+              className="ml-[3px] inline-block h-[0.95em] w-0.5 -translate-y-[0.1em] bg-accent align-middle"
+              style={{ animation: 'caret-blink 1s step-end infinite' }}
+              aria-hidden
+            />
+          </span>
         </motion.h2>
 
         {/* Tagline */}
         <motion.p
           variants={staggerItem}
-          className="mt-6 max-w-2xl text-base leading-relaxed text-content sm:text-lg"
+          className="mt-6 max-w-[60ch] text-base leading-[1.7] text-content [text-wrap:pretty]"
         >
           {t.hero.tagline}
         </motion.p>
 
         {/* CTAs */}
-        <motion.div
-          variants={staggerItem}
-          className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
-        >
-          <a
-            href="#projects"
-            className="group inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-base transition-all hover:bg-accent-strong hover:shadow-[0_0_30px_-8px_var(--color-accent)]"
-          >
+        <motion.div variants={staggerItem} className="mt-8 flex flex-wrap gap-3">
+          <a href="#projects" className="btn btn-primary px-5 py-2.5">
             {t.hero.ctaProjects}
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            <ArrowDownRight size={15} />
           </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-heading transition-colors hover:border-accent/60 hover:text-accent"
-          >
+          <a href="#contact" className="btn btn-secondary px-5 py-2.5">
             {t.hero.ctaContact}
           </a>
         </motion.div>
@@ -104,7 +114,7 @@ export function Hero() {
         initial="hidden"
         animate="visible"
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs font-medium uppercase tracking-widest text-muted transition-colors hover:text-accent sm:flex"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-widest text-muted transition-colors hover:text-accent sm:flex"
       >
         {t.hero.scroll}
         <ArrowDown size={16} className="animate-bounce" />

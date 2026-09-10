@@ -45,5 +45,10 @@ export const experiences: ExperienceItem[] = [
       'Claude Code',
       'MCP',
     ],
+    storeLinks: {
+      android:
+        'https://play.google.com/store/apps/details?id=org.ai.interlinklabs.interlinkId',
+      ios: 'https://apps.apple.com/us/app/interlink-network/id6737988220',
+    },
   },
 ]
