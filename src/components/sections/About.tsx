@@ -1,4 +1,4 @@
-import { Award, Briefcase, GraduationCap, MapPin, Smartphone } from 'lucide-react'
+import { Award, GraduationCap, MapPin, Smartphone } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Section } from '../layout/Section'
 import { SectionHeading } from '../ui/SectionHeading'
@@ -22,7 +22,6 @@ export function About() {
   const { facts, values } = t.about
 
   const cards: { icon: LucideIcon; label: string; value: string }[] = [
-    { icon: Briefcase, label: facts.role, value: values.roleValue },
     { icon: MapPin, label: facts.location, value: values.locationValue },
     { icon: Smartphone, label: facts.experience, value: values.experienceValue },
     { icon: GraduationCap, label: facts.education, value: values.educationValue },
@@ -47,30 +46,36 @@ export function About() {
         {/* Fact cards */}
         <Reveal className="lg:col-span-2" delay={0.1}>
           <div className="grid grid-cols-2 gap-3.5">
-            {/* Certifications share one card, scores right-aligned */}
-            <div className={`${CARD_CLASS} col-span-2 flex flex-col`}>
+            {/* Certifications share one card, scores right-aligned. The cell is
+                narrow, so the compact names are used to keep each row on one line. */}
+            <div className={CARD_CLASS}>
               <Award size={20} className="mb-3 text-accent" strokeWidth={1.6} />
               <CardLabel>{facts.certifications}</CardLabel>
-              {certifications.map((cert, i) => (
-                <div key={cert.id}>
-                  {i > 0 && <div className="my-2.5 h-px bg-border" />}
-                  <div className="flex items-baseline justify-between gap-3">
-                    <span className="text-[12.5px] leading-snug text-content">
-                      {pick(cert.name)}
+              <div className="grid gap-2">
+                {certifications.map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="flex items-baseline justify-between gap-2"
+                    title={pick(cert.name)}
+                  >
+                    <span className="text-[13px] leading-snug text-content">
+                      {cert.shortName}
                     </span>
-                    <span className="text-base font-medium leading-none text-accent-300">
+                    <span className="text-[14.5px] font-medium leading-none text-accent-300">
                       {cert.score}
                     </span>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             {cards.map((card) => (
               <div key={card.label} className={CARD_CLASS}>
                 <card.icon size={20} className="mb-3 text-accent" strokeWidth={1.6} />
                 <CardLabel>{card.label}</CardLabel>
-                <p className="text-[14.5px] font-medium text-heading">
+                {/* whitespace-pre-line keeps the 
+ line breaks written in the copy */}
+                <p className="whitespace-pre-line text-[14.5px] font-medium leading-snug text-heading">
                   {card.value}
                 </p>
               </div>

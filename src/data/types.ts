@@ -59,6 +59,8 @@ export interface ProjectItem {
 export interface Certification {
   id: string
   name: Localized
+  /** Compact form used where the card is too narrow for the full name. */
+  shortName: string
   score: string
   period: string
 }

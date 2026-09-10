@@ -117,7 +117,8 @@ export const translations: Record<Lang, Dictionary> = {
         roleValue: 'Mobile Developer',
         locationValue: 'Ho Chi Minh City, VN',
         experienceValue: 'React Native · Flutter · Web3',
-        educationValue: 'Computer Science, UIT · GPA 7.92',
+        educationValue:
+          'Computer Science\nUIT, VNU-HCM',
       },
     },
     skills: {
@@ -193,7 +194,8 @@ export const translations: Record<Lang, Dictionary> = {
         roleValue: 'Mobile Developer',
         locationValue: 'TP. Hồ Chí Minh, VN',
         experienceValue: 'React Native · Flutter · Web3',
-        educationValue: 'Khoa học Máy tính, UIT · GPA 7.92',
+        educationValue:
+          'Khoa học Máy tính\nUIT, VNU-HCM',
       },
     },
     skills: {
