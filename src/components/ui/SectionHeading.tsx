@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Reveal } from './Reveal'
 import { cn } from '../../lib/cn'
 
@@ -6,6 +7,8 @@ interface SectionHeadingProps {
   title: string
   align?: 'left' | 'center'
   className?: string
+  /** Optional control sitting on the same row as the accent rule. */
+  aside?: ReactNode
 }
 
 /** Section header: accent eyebrow, large title, short accent rule under it. */
@@ -14,6 +17,7 @@ export function SectionHeading({
   title,
   align = 'left',
   className,
+  aside,
 }: SectionHeadingProps) {
   return (
     <Reveal
@@ -29,7 +33,10 @@ export function SectionHeading({
       <h2 className="mt-3 text-[clamp(1.75rem,4vw,2.625rem)] leading-tight tracking-[-0.02em]">
         {title}
       </h2>
-      <span className="mt-5 h-0.5 w-11 bg-accent" aria-hidden />
+      <div className="mt-5 flex items-center gap-4">
+        <span className="h-0.5 w-11 bg-accent" aria-hidden />
+        {aside}
+      </div>
     </Reveal>
   )
 }

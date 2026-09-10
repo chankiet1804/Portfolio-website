@@ -17,15 +17,37 @@ function CardLabel({ children }: { children: string }) {
   )
 }
 
+interface Fact {
+  icon: LucideIcon
+  label: string
+  value: string
+}
+
+function FactCard({ icon: Icon, label, value }: Fact) {
+  return (
+    <div className={CARD_CLASS}>
+      <Icon size={20} className="mb-3 text-accent" strokeWidth={1.6} />
+      <CardLabel>{label}</CardLabel>
+      {/* whitespace-pre-line keeps the 
+ line breaks written in the copy */}
+      <p className="whitespace-pre-line text-[14.5px] font-medium leading-snug text-heading">
+        {value}
+      </p>
+    </div>
+  )
+}
+
 export function About() {
   const { t, pick } = useLanguage()
   const { facts, values } = t.about
 
-  const cards: { icon: LucideIcon; label: string; value: string }[] = [
-    { icon: MapPin, label: facts.location, value: values.locationValue },
+  /* The certifications card is rendered between the first and second fact,
+     so the grid reads: Focus / Certifications, then Location / Education. */
+  const [focus, ...tailFacts] = [
     { icon: Smartphone, label: facts.experience, value: values.experienceValue },
+    { icon: MapPin, label: facts.location, value: values.locationValue },
     { icon: GraduationCap, label: facts.education, value: values.educationValue },
-  ]
+  ] satisfies Fact[]
 
   return (
     <Section id="about">
@@ -46,6 +68,8 @@ export function About() {
         {/* Fact cards */}
         <Reveal className="lg:col-span-2" delay={0.1}>
           <div className="grid grid-cols-2 gap-3.5">
+            <FactCard {...focus} />
+
             {/* Certifications share one card, scores right-aligned. The cell is
                 narrow, so the compact names are used to keep each row on one line. */}
             <div className={CARD_CLASS}>
@@ -69,16 +93,8 @@ export function About() {
               </div>
             </div>
 
-            {cards.map((card) => (
-              <div key={card.label} className={CARD_CLASS}>
-                <card.icon size={20} className="mb-3 text-accent" strokeWidth={1.6} />
-                <CardLabel>{card.label}</CardLabel>
-                {/* whitespace-pre-line keeps the 
- line breaks written in the copy */}
-                <p className="whitespace-pre-line text-[14.5px] font-medium leading-snug text-heading">
-                  {card.value}
-                </p>
-              </div>
+            {tailFacts.map((card) => (
+              <FactCard key={card.label} {...card} />
             ))}
           </div>
         </Reveal>

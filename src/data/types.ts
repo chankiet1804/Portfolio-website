@@ -8,11 +8,16 @@ export interface SocialLink {
   icon: 'github' | 'linkedin' | 'mail' | 'mapPin'
 }
 
+/** Framework branch of the Skills section toggle. */
+export type SkillTrack = 'rn' | 'flutter'
+
 export interface SkillGroup {
   id: string
   label: Localized
-  /** Neutral technology names (not translated). */
+  /** Neutral technology names (not translated), shown for both tracks. */
   skills: string[]
+  /** Appended after `skills` for the selected track only. */
+  trackSkills?: Record<SkillTrack, string[]>
 }
 
 export interface ExperienceItem {
