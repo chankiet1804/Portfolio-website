@@ -25,7 +25,7 @@ function ProjectArticle({
     <Reveal>
       <article
         className={cn(
-          'grid items-center gap-12',
+          'grid items-center gap-12 lg:items-start',
           hasImage && 'lg:grid-cols-2',
         )}
       >
@@ -126,7 +126,7 @@ export function Projects() {
         title={t.projects.heading}
       />
 
-      <div className="mt-14 grid gap-24">
+      <div className="mt-10 grid gap-24">
         {projects.map((project, index) => (
           <ProjectArticle key={project.id} project={project} index={index} />
         ))}
