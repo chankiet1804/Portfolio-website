@@ -12,7 +12,7 @@ export const profile = {
     vi: 'TP. Hồ Chí Minh, Việt Nam',
   },
   /** Path (in /public) to the downloadable CV. */
-  cvUrl: '/Huynh-Chan-Kiet-CV.pdf',
+  cvUrl: '/Huynh-Chan-Kiet-CV-mobile.pdf',
 } as const
 
 /**
